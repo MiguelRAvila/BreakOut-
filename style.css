@@ -12,9 +12,26 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+h1 {
+    font-size: 45px;
+    color: whitesmoke;
+}
 
 canvas {
-    background: #f0f0f0;
+    background: whitesmoke;
     display: block;
     border-radius: 5px;
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    padding: 10px 20px;
+    color: whitesmoke;
+    background: black;
+    border-radius: 5px;
+}
+
+.btn:focus {
+    outline: none;
 }
