@@ -33,5 +33,15 @@ canvas {
 }
 
 .btn:focus {
-    outline: none;
+    outline: 0;
+}
+
+.btn:hover {
+    background: #222;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+.rules-btn {
+    position: absolute;
 }
