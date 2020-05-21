@@ -57,4 +57,9 @@ canvas {
     width: 400px;
     padding: 20px;
     line-height: 1.5;
+    transform: translateX(-400px);
+    transition: all .7s ease-in-out;
+}
+.rules.show {
+    transform: translateX(0);
 }
