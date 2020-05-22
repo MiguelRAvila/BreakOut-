@@ -2,7 +2,7 @@
 const rulesBtn = document.getElementById('rules-btn');
 const closeBtn = document.getElementById('close-btn');
 const rules = document.getElementById('rules');
-const canvas =document.getElementById('canvas');
+const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 // Objects
@@ -16,8 +16,8 @@ const ball = {
 
 }
 const paddle = {
-    x: canvas.width / 2 -40,
-    y: canvas.height -20, 
+    x: canvas.width / 2 - 40,
+    y: canvas.height - 20,
     w: 80,
     h: 10,
     speed: 8,
@@ -43,15 +43,19 @@ function drawPaddle() {
     ctx.closePath();
 }
 
-drawBall();
-drawPaddle();
+function draw() {
+    drawBall();
+    drawPaddle();
+}
+
+draw();
 
 // Events Listeners
-rulesBtn.addEventListener('click', () => 
+rulesBtn.addEventListener('click', () =>
     rules.classList.add('show')
- );
- closeBtn.addEventListener('click', () =>
+);
+closeBtn.addEventListener('click', () =>
     rules.classList.remove('show')
- );
+);
 
  //Canvas
