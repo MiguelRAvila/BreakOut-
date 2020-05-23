@@ -43,7 +43,7 @@ for (let i = 0; i < brickRowCount; i++) {
     for (let j = 0; j < brickColumnCount; j++) {
         const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
         const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
-        bricks[i][j] = { x, y }
+        bricks[i][j] = { x, y, ...brickInfo }
     }
 }
 
@@ -62,6 +62,18 @@ function drawPaddle() {
     ctx.fillStyle = '#0075b7'
     ctx.fill();
     ctx.closePath();
+}
+
+function drawBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            ctx.beginPath();
+            ctx.rect(brick.x, brick.y, brick.w, brick.h)
+            ctx.fillStyle = '#0075b7'
+            ctx.fill();
+            ctx.closePath();
+        })
+    })
 }
 
 function draw() {
