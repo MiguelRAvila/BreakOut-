@@ -43,10 +43,10 @@ for (let i = 0; i < brickRowCount; i++) {
     for (let j = 0; j < brickColumnCount; j++) {
         const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
         const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
-        bricks[i][j] = { x, y, ...brickInfo }
+        bricks[i][j] = { x, y, ...brickInfo };
     }
 }
-console.log(bricks);
+
 // Draw 
 function drawBall() {
     ctx.beginPath();
@@ -68,25 +68,18 @@ function drawBricks() {
     bricks.forEach(column => {
         column.forEach(bricks => {
             ctx.beginPath();
-            ctx.rect(bricks.x, bricks.y, bricks.w, bricks.h)
+            ctx.rect(bricks.x, bricks.y, bricks.w, bricks.h);
             ctx.fillStyle = bricks.visible ? '#0075b7' : 'transparent';
             ctx.fill();
             ctx.closePath();
-        })
-    })
+        });
+    });
 }
 function drawScore() {
-    ctx.font = '20px Arial';
+    ctx.font = '15px Arial';
     ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
-function draw() {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
-    drawPaddle();
-    drawBricks();
-    drawScore();
-}
 
 // Move 
 function movePaddle() {
@@ -144,7 +137,7 @@ function moveBall() {
 
 function increaseScore() {
     score++;
-    if(score % (brickRowCount*brickColumnCount) === 0) {
+    if(score % (brickRowCount*brickRowCount) === 0) {
         showAllBricks();
     }
 }
@@ -156,10 +149,19 @@ function showAllBricks() {
         })
     })
 }
+function draw() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawBricks();
+    
+}
 //Update Canvas
 function update() {
-    moveBall();
     movePaddle();
+    moveBall();
     draw();
     requestAnimationFrame(update);
 }
