@@ -127,7 +127,8 @@ function moveBall() {
                     ball.y + ball.size > brick.y &&
                     ball.y - ball.size < brick.y + brick.h
                 ) {
-
+                    ball.dy *= -1;
+                    brick.visible = false;
                 }
             }
         })
