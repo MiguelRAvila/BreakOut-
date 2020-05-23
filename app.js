@@ -87,6 +87,8 @@ function draw() {
     drawBricks();
     drawScore();
 }
+
+// Move 
 function movePaddle() {
     paddle.x += paddle.dx;
 
@@ -98,10 +100,25 @@ function movePaddle() {
         paddle.x = 0;
     }
 }
+function moveBall() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+    
+    //Wall Collision !Important
+    if(ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
+        ball.dx *= -1;
+    }
+    if(ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
+        
+        ball.dy *= -1;
+    }
+}
+
 
 
 //Update Canvas
 function update() {
+    moveBall();
     movePaddle();
     draw();
     requestAnimationFrame(update);
