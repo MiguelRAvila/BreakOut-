@@ -18,7 +18,7 @@ const ball = {
     dx: 4,
     dy: -4
 
-}
+};
 const paddle = {
     x: canvas.width / 2 - 40,
     y: canvas.height - 20,
@@ -26,7 +26,7 @@ const paddle = {
     h: 10,
     speed: 8,
     dx: 0
-}
+};
 
 const brickInfo = {
     w: 70,
@@ -35,9 +35,9 @@ const brickInfo = {
     offsetX: 45,
     offsetY: 60,
     visible: true
-}
+};
 
-const bricks [];
+const bricks = [];
 for (let i = 0; i < brickRowCount; i++) {
     bricks[i] = [];
     for (let j = 0; j < brickColumnCount; j++) {
@@ -46,7 +46,7 @@ for (let i = 0; i < brickRowCount; i++) {
         bricks[i][j] = { x, y, ...brickInfo }
     }
 }
-
+console.log(bricks);
 // Draw 
 function drawBall() {
     ctx.beginPath();
@@ -66,10 +66,10 @@ function drawPaddle() {
 
 function drawBricks() {
     bricks.forEach(column => {
-        column.forEach(brick => {
+        column.forEach(bricks => {
             ctx.beginPath();
-            ctx.rect(brick.x, brick.y, brick.w, brick.h)
-            ctx.fillStyle = '#0075b7'
+            ctx.rect(bricks.x, bricks.y, bricks.w, bricks.h)
+            ctx.fillStyle = bricks.visible ? '#0075b7' : 'transparent';
             ctx.fill();
             ctx.closePath();
         })
@@ -80,6 +80,7 @@ function draw() {
     drawBall();
     drawPaddle();
     drawScore();
+    drawBricks();
 }
 
 function drawScore() {
