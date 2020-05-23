@@ -86,7 +86,15 @@ function draw() {
     drawScore();
 }
 function movePaddle() {
-    
+    paddle.x += paddle.dx;
+
+    //Wall Detection !Important
+    if(paddle.x + paddle.w > canvas.width) {
+        paddle.x = canvas.width - paddle.w;
+    }
+    if(paddle.x < 0) {
+        paddle.x = 0;
+    }
 }
 
 
