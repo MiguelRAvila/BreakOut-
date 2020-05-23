@@ -134,7 +134,7 @@ function moveBall() {
     }
 }
 
-
+//Score
 function increaseScore() {
     score++;
     if(score % (brickRowCount*brickRowCount) === 0) {
@@ -142,6 +142,7 @@ function increaseScore() {
     }
 }
 
+//Reset
 function showAllBricks() {
     bricks.forEach(column => {
         column.forEach(brick => {
@@ -149,6 +150,8 @@ function showAllBricks() {
         })
     })
 }
+
+//Calling Functions
 function draw() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -168,6 +171,7 @@ function update() {
 
 update();
 
+// Movement 
 function keyDown(e) {
     if(e.key === 'Right' || e.key === 'ArrowRight') {
         paddle.dx = paddle.speed;
