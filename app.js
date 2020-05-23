@@ -75,22 +75,29 @@ function drawBricks() {
         })
     })
 }
-
-function draw() {
-    drawBall();
-    drawPaddle();
-    drawScore();
-    drawBricks();
-}
-
 function drawScore() {
     ctx.font = '20px Arial';
     ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
-
+}
+function draw() {
+    drawBall();
+    drawPaddle();
+    drawBricks();
+    drawScore();
+}
+function movePaddle() {
+    
 }
 
-draw();
 
+//Update Canvas
+function update() {
+    movePaddle();
+    draw();
+    requestAnimationFrame(update);
+}
+
+update();
 // Events Listeners
 rulesBtn.addEventListener('click', () =>
     rules.classList.add('show')
